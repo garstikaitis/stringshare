@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('graphql/login', 'AuthController@authenticate');
-Route::get('/venues', 'VenueController@index');
-Route::get('/bands', 'BandController@index');
-Route::get('/users', 'UserController@index');
+Route::group(['prefix' => '/api'], function() {
+    Route::post('/login', 'AuthController@authenticate');
+    Route::get('/venues', 'VenueController@index');
+    Route::get('/bands', 'BandController@index');
+    Route::get('/users', 'UserController@index');
+    Route::get('/proposals', 'ProposalController@index');
+});
