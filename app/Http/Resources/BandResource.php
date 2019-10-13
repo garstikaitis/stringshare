@@ -17,7 +17,9 @@ class BandResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'logo' => $this->logo,
             'manager' => $this->manager,
+            'genres' => $this->genres()->pluck('name')
         ];
     }
 }

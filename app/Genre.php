@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Venue extends Model
+class Genre extends Model
 {
     protected $fillable = ['name'];
-    public function manager() {
-        return $this->belongsTo('\App\User');
+    public function bands() {
+        return $this->belongsToMany('\App\Band');
     }
 }
