@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proposal extends Model
 {
+    protected $fillable = ['band_id', 'venue_id'];
+    
     public function band() {
         return $this->belongsTo('\App\Band');
     }

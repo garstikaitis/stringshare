@@ -17,9 +17,20 @@ Route::get('/', function () {
 
 Route::group(['prefix' => '/api'], function() {
     Route::post('/login', 'AuthController@authenticate');
-    Route::get('/venues', 'VenueController@index');
-    Route::get('/bands', 'BandController@index');
-    Route::get('/users', 'UserController@index');
-    Route::get('/proposals', 'ProposalController@index');
-    Route::get('/genres', 'GenreController@index');
+    Route::group(['prefix' => 'venues'], function() {
+        Route::get('/', 'VenueController@index');
+    });
+    Route::group(['prefix' => 'bands'], function() {
+        Route::get('/', 'BandController@index');
+    });
+    Route::group(['prefix' => 'users'], function() {
+        Route::get('/', 'UserController@index');
+    });
+    Route::group(['prefix' => 'proposals'], function() {
+        Route::get('/', 'ProposalController@index');
+        Route::post('/', 'ProposalController@createProposal');
+    });
+    Route::group(['prefix' => 'enums'], function() {
+        Route::get('/genres', 'GenreController@index');
+    });
 });

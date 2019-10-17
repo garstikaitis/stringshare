@@ -18,6 +18,7 @@ class ProposalResource extends JsonResource
             'id' => $this->id,
             'venue' => $this->venue,
             'band' => $this->band,
+            'created_at' => $this->created_at,
         ];
     }
 }
