@@ -11,7 +11,7 @@ class AuthController extends Controller
     {
         $this->jwt = $jwt;
     }
-    public function authenticate(Request $request)
+    public function authenticateWithEmailAndPassword(Request $request)
     {
         $credentials = $request->only('email', 'password');
         try {
