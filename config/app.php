@@ -164,6 +164,8 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Rennokki\Larafy\LarafyServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class,
 
         /*
          * Package Service Providers...
