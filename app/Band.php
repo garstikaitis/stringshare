@@ -2,9 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Rennokki\Larafy\Larafy;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Illuminate\Database\Eloquent\Model;
 
 class Band extends Model
 {
@@ -24,5 +25,10 @@ class Band extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    public function getSpotifyAlbums(string $spotify_id) {
+        $api = new Larafy();
+        return $api->getArtistAlbums($spotify_id)->items;
     }
 }

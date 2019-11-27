@@ -26,6 +26,7 @@ Route::group(['prefix' => '/api'], function() {
     });
     Route::group(['prefix' => 'bands'], function() {
         Route::get('/', 'BandController@index');
+        Route::get('/{slug}', 'BandController@getBand');
     });
     Route::group(['prefix' => 'users'], function() {
         Route::get('/', 'UserController@index');
